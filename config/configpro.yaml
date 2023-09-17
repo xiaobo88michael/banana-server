@@ -1,0 +1,45 @@
+# The class cannot be named by Pascal or camel case.
+# The class cannot be named by Pascal or camel case.
+# If it is not used, the corresponding structure will not be set,
+# and it will not be read naturally.
+serverversion: 2.0.0
+#---------------BlockchainData configuration---------------------#
+redis:
+  # dbAddress: [ 3.0.175.230:46379 ] #测试环境
+  dbAddress: [ blockchaindata.ad9n4e.clustercfg.apse1.cache.amazonaws.com:6379 ] #生产环境
+  dbMaxIdle: 128
+  dbMaxActive: 0
+  dbIdleTimeout: 120
+  dbPassWord: #redis密码 建议修改
+  enableCluster: true #如果外部redis以集群方式启动，需要打开此开关
+
+opensea:
+  api_key: 73e2625167014401a3acc39b83b8463d
+
+infura:
+  url : https://mainnet.infura.io/v3/%s
+  api_key: a36c7f54cb3244a3b352f922daad690c
+  opensea_contract : 0x495f947276749Ce646f68AC8c248420045cb7b5e
+  erc20_contract : 0x171b1daefac13a0a3524fcb6beddc7b31e58e079 #fcc地址
+
+jwt:
+  url: https://imapi.freechat.world/freechat-api/user/get_userid
+
+eth_master:
+  eth_collection_wallet_address : *
+  eth_master_wallet_address : *
+  eth_master_wallet_private : 5k8ZQkkwQwvAvxnvI9rbAB8RAg0aYa916aMlpqhl2Wlu8HSY2a8ZRDEHcIrYtaxjXRfek+5xpFHGSyck55vXXQ==
+  eth_gas_limit : 300000
+
+mysql:
+  dbMysqlAddress: [ im-1.crzgbbcfhj6c.ap-southeast-1.rds.amazonaws.com:3306 ] #mysql地址 目前仅支持单机，默认即可
+  dbMysqlUserName: admin #mysql用户名，建议修改
+  dbMysqlPassword: kc$Kj9Po&DGr4ai # mysql密码，建议修改
+  dbMysqlDatabaseName: block_chain #默认即可
+  dbTableName: blind_box #默认即可
+  dbMsgTableNum: 1
+  dbMaxOpenConns: 100
+  dbMaxIdleConns: 10
+  dbMaxLifeTime: 5
+  logLevel: 1 #1=slient 2=error 3=warn 4=info
+  slowThreshold: 500

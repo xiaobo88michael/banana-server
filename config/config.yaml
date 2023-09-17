@@ -1,0 +1,18 @@
+# The class cannot be named by Pascal or camel case.
+# The class cannot be named by Pascal or camel case.
+# If it is not used, the corresponding structure will not be set,
+# and it will not be read naturally.
+serverversion: 2.0.0
+#---------------BlockchainData configuration---------------------#
+mysql:
+  dbMysqlAddress: [ 13.228.93.202:13306 ] #mysql地址 目前仅支持单机，默认即可
+  dbMysqlUserName: root #mysql用户名，建议修改
+  dbMysqlPassword: openIM # mysql密码，建议修改
+  dbMysqlDatabaseName: block_chain #默认即可
+  dbTableName: blind_box #默认即可
+  dbMsgTableNum: 1
+  dbMaxOpenConns: 100
+  dbMaxIdleConns: 10
+  dbMaxLifeTime: 5
+  logLevel: 1 #1=slient 2=error 3=warn 4=info
+  slowThreshold: 500

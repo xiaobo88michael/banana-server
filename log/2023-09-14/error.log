@@ -1,0 +1,2 @@
+[github.com/flipped-aurora/gin-vue-admin/server]2023/09/14 - 23:41:15.133	[31merror[0m	F:/Goworks/wangba-server/utils/clamis.go:15	从Gin的Context中获取从jwt解析信息失败, 请检查请求头是否存在x-token且claims是否为规定结构
+[github.com/flipped-aurora/gin-vue-admin/server]2023/09/14 - 23:46:45.075	[31merror[0m	F:/Goworks/wangba-server/utils/clamis.go:15	从Gin的Context中获取从jwt解析信息失败, 请检查请求头是否存在x-token且claims是否为规定结构

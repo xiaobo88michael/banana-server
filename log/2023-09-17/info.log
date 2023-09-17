@@ -1,0 +1,28 @@
+[github.com/flipped-aurora/gin-vue-admin/server]2023/09/17 - 01:46:44.554	[34minfo[0m	F:/Goworks/wangba-server/initialize/gorm.go:65	register table success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/09/17 - 01:46:44.570	[34minfo[0m	F:/Goworks/wangba-server/initialize/router.go:41	register swagger handler
+[github.com/flipped-aurora/gin-vue-admin/server]2023/09/17 - 01:46:44.595	[34minfo[0m	F:/Goworks/wangba-server/initialize/router.go:84	router register success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/09/17 - 01:46:44.612	[34minfo[0m	F:/Goworks/wangba-server/core/server.go:36	server run success on 	{"address": ":9099"}
+[github.com/flipped-aurora/gin-vue-admin/server]2023/09/17 - 09:26:34.218	[34minfo[0m	F:/Goworks/wangba-server/initialize/gorm.go:65	register table success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/09/17 - 09:26:34.232	[34minfo[0m	F:/Goworks/wangba-server/initialize/router.go:41	register swagger handler
+[github.com/flipped-aurora/gin-vue-admin/server]2023/09/17 - 09:26:34.262	[34minfo[0m	F:/Goworks/wangba-server/initialize/router.go:84	router register success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/09/17 - 09:26:34.274	[34minfo[0m	F:/Goworks/wangba-server/core/server.go:36	server run success on 	{"address": ":9099"}
+[github.com/flipped-aurora/gin-vue-admin/server]2023/09/17 - 14:23:29.215	[34minfo[0m	F:/Goworks/wangba-server/initialize/gorm.go:65	register table success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/09/17 - 14:23:29.237	[34minfo[0m	F:/Goworks/wangba-server/initialize/router.go:41	register swagger handler
+[github.com/flipped-aurora/gin-vue-admin/server]2023/09/17 - 14:23:29.268	[34minfo[0m	F:/Goworks/wangba-server/initialize/router.go:84	router register success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/09/17 - 14:23:29.273	[34minfo[0m	F:/Goworks/wangba-server/core/server.go:36	server run success on 	{"address": ":9099"}
+[github.com/flipped-aurora/gin-vue-admin/server]2023/09/17 - 14:36:15.850	[34minfo[0m	F:/Goworks/wangba-server/initialize/gorm.go:65	register table success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/09/17 - 14:36:15.867	[34minfo[0m	F:/Goworks/wangba-server/initialize/router.go:41	register swagger handler
+[github.com/flipped-aurora/gin-vue-admin/server]2023/09/17 - 14:36:15.906	[34minfo[0m	F:/Goworks/wangba-server/initialize/router.go:84	router register success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/09/17 - 14:36:15.919	[34minfo[0m	F:/Goworks/wangba-server/core/server.go:36	server run success on 	{"address": ":9099"}
+[github.com/flipped-aurora/gin-vue-admin/server]2023/09/17 - 14:42:43.793	[34minfo[0m	F:/Goworks/wangba-server/initialize/gorm.go:65	register table success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/09/17 - 14:42:43.806	[34minfo[0m	F:/Goworks/wangba-server/initialize/router.go:41	register swagger handler
+[github.com/flipped-aurora/gin-vue-admin/server]2023/09/17 - 14:42:43.843	[34minfo[0m	F:/Goworks/wangba-server/initialize/router.go:84	router register success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/09/17 - 14:42:43.859	[34minfo[0m	F:/Goworks/wangba-server/core/server.go:36	server run success on 	{"address": ":9099"}
+[github.com/flipped-aurora/gin-vue-admin/server]2023/09/17 - 14:45:58.896	[34minfo[0m	F:/Goworks/wangba-server/initialize/gorm.go:65	register table success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/09/17 - 14:45:58.957	[34minfo[0m	F:/Goworks/wangba-server/initialize/router.go:41	register swagger handler
+[github.com/flipped-aurora/gin-vue-admin/server]2023/09/17 - 14:45:59.044	[34minfo[0m	F:/Goworks/wangba-server/initialize/router.go:84	router register success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/09/17 - 14:45:59.050	[34minfo[0m	F:/Goworks/wangba-server/core/server.go:36	server run success on 	{"address": ":9099"}
+[github.com/flipped-aurora/gin-vue-admin/server]2023/09/17 - 15:04:42.185	[34minfo[0m	F:/Goworks/wangba-server/initialize/gorm.go:65	register table success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/09/17 - 15:04:42.195	[34minfo[0m	F:/Goworks/wangba-server/initialize/router.go:41	register swagger handler
+[github.com/flipped-aurora/gin-vue-admin/server]2023/09/17 - 15:04:42.229	[34minfo[0m	F:/Goworks/wangba-server/initialize/router.go:84	router register success
+[github.com/flipped-aurora/gin-vue-admin/server]2023/09/17 - 15:04:42.242	[34minfo[0m	F:/Goworks/wangba-server/core/server.go:36	server run success on 	{"address": ":9099"}
