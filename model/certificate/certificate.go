@@ -30,6 +30,7 @@ type ThinkMerchantsInfo struct {
 	MainBodyInfo        string `gorm:"type:text;comment:'主体信息资料'"`
 	CorporationInfo     string `gorm:"type:text;comment:'法人信息资料'"`
 	OperatorInfo        string `gorm:"type:text;comment:'经办人信息资料'"`
+	AuditStatus         int    `gorm:"column:audit_status;comment:'审核状态'" json:"audit_status"`
 }
 
 func (ThinkMerchantsInfo) TableName() string {
@@ -88,6 +89,7 @@ type ThinkMember struct {
 	Address        string    `gorm:"type:varchar(255);not null;default:'';comment:'详细地址'"`
 	Name           string    `gorm:"type:varchar(255);not null;default:'';comment:'姓名'"`
 	IdCardImg      string    `gorm:"type:text;comment:'身份证图片地址'"`
+	AuditStatus    int       `gorm:"column:audit_status;comment:'审核状态'" json:"audit_status"`
 }
 
 func (ThinkMember) TableName() string {

@@ -25,6 +25,7 @@ func (s *CerService) UserAuditMaterialRelease(req *request.UserAduitMaterialsRel
 	thinkMember.IdCardImg = string(images)
 	thinkMember.Name = req.Name
 	thinkMember.DueDate = req.DueDate
+	thinkMember.AuditStatus = 1
 	return global.GVA_DB.Table("think_member").Save(&thinkMember).Error
 }
 
@@ -42,7 +43,7 @@ func (s *CerService) CompanyAuditMaterialRelease(req *request.CompanyAduitMateri
 	thinkMec.OperatorInfo = string(operator)
 	thinkMec.MainBodyInfo = string(mainBody)
 	thinkMec.CompanyType = uint(req.CompanyType)
-
+	thinkMec.AuditStatus = 1
 	return global.GVA_DB.Table("think_merchants_info").Save(&thinkMec).Error
 }
 
