@@ -18,6 +18,9 @@ func (s *CerService) UserAuditMaterialRelease(req *request.UserAduitMaterialsRel
 	if rows == 0 {
 		return errors.New("UserNoExist")
 	}
+	if thinkMember.AuditStatus != 0 {
+		return errors.New("audited")
+	}
 	images, _ := json.Marshal(req.Images)
 	thinkMember.IdCardType = req.IdCardType
 	thinkMember.IdCard = req.IdCard
@@ -35,6 +38,9 @@ func (s *CerService) CompanyAuditMaterialRelease(req *request.CompanyAduitMateri
 	rows := global.GVA_DB.Table("think_merchants_info").Where("id=?", req.CompanyID).Find(&thinkMec).RowsAffected
 	if rows == 0 {
 		return errors.New("MerchantsNoExist")
+	}
+	if thinkMec.AuditStatus != 0 {
+		return errors.New("audited")
 	}
 	mainBody, _ := json.Marshal(&req.MainBodyInfo)
 	corporation, _ := json.Marshal(&req.CorporationInfo)

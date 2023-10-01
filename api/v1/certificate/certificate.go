@@ -30,6 +30,11 @@ func (s *CertApi) UserAduitMaterialsRelease(c *gin.Context) {
 			cerRes.FailWithMessage("用户不存在", c)
 			return
 		}
+		if err.Error() == "audited" {
+			global.GVA_LOG.Error("已提交审核")
+			cerRes.FailWithMessage("已提交审核", c)
+			return
+		}
 		global.GVA_LOG.Error(err.Error())
 		cerRes.FailWithMessage(err.Error(), c)
 		return
@@ -56,6 +61,11 @@ func (s *CertApi) CompanyAduitMaterialsRelease(c *gin.Context) {
 		if err.Error() == "MerchantsNoExist" {
 			global.GVA_LOG.Error("商户不存在")
 			cerRes.FailWithMessage("商户不存在", c)
+			return
+		}
+		if err.Error() == "audited" {
+			global.GVA_LOG.Error("已提交审核")
+			cerRes.FailWithMessage("已提交审核", c)
 			return
 		}
 		global.GVA_LOG.Error(err.Error())
