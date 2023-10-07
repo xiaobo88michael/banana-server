@@ -3,6 +3,7 @@ package certificate
 import (
 	"encoding/json"
 	"errors"
+	"fmt"
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	"github.com/flipped-aurora/gin-vue-admin/server/model/certificate"
 	"github.com/flipped-aurora/gin-vue-admin/server/model/certificate/request"
@@ -63,4 +64,43 @@ func (s *CerService) GoodsRelease(req *request.ReleaseGoodReq) error {
 	}
 
 	return global.GVA_DB.Table("think_goods").Create(&thinkgood).Error
+}
+
+func (s *CerService) UpdateAuditStatus(req *request.UpdateAuditStatusReq) error {
+	if req.UpdateType == 1 {
+		err := UpdateUserAuditStatus(req.UserID, req.Status)
+		if err != nil {
+			return err
+		}
+	} else if req.UpdateType == 2 {
+		err := UpdateCompanyAuditStatus(req.CompanyID, req.Status)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+func UpdateUserAuditStatus(userId int, status int) error {
+	var thinkMember certificate.ThinkMember
+	fmt.Println("userId:", userId)
+	rows := global.GVA_DB.Table("think_member").Where("id=?", userId).Find(&thinkMember).Error
+	fmt.Println("thinkMember:", thinkMember)
+	if rows != nil {
+		fmt.Println("err:", rows)
+		return errors.New("UserNoExist")
+	}
+	thinkMember.AuditStatus = status
+	return global.GVA_DB.Table("think_member").Save(&thinkMember).Error
+}
+
+func UpdateCompanyAuditStatus(companyId int, status int) error {
+	var thinkMec certificate.ThinkMerchantsInfo
+
+	rows := global.GVA_DB.Table("think_merchants_info").Where("id=?", companyId).Find(&thinkMec).RowsAffected
+	if rows == 0 {
+		return errors.New("MerchantsNoExist")
+	}
+	thinkMec.AuditStatus = status
+	return global.GVA_DB.Table("think_merchants_info").Save(&thinkMec).Error
 }

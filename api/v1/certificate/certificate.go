@@ -97,3 +97,26 @@ func (s *CertApi) ReleaseGoods(c *gin.Context) {
 	}
 	cerRes.Result(cerRes.SUCCESS, nil, "拍品发布成功", c)
 }
+
+// UpdateUserAuditStatus
+// @Tags      UpdateUserAuditStatus
+// @Summary   更新审核状态
+// @accept    application/json
+// @Produce   application/json
+// @Param     data  body      cerReq.UpdateAuditStatusReq     true  "审核状态更新"
+// @Success   200   {object}  cerRes.Response{msg=string}  "审核状态更新成功"
+// @Router    /certificate/UpdateUserAuditStatus [post]
+func (s *CertApi) UpdateUserAuditStatus(c *gin.Context) {
+	var req cerReq.UpdateAuditStatusReq
+	if err := c.ShouldBindJSON(&req); err != nil {
+		cerRes.FailWithMessage(err.Error(), c)
+		return
+	}
+	err := cerService.UpdateAuditStatus(&req)
+	if err != nil {
+		global.GVA_LOG.Error(err.Error())
+		cerRes.FailWithMessage(err.Error(), c)
+		return
+	}
+	cerRes.Result(cerRes.SUCCESS, nil, "审核状态更新成功", c)
+}

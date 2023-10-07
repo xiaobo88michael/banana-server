@@ -29,6 +29,13 @@ type ReleaseGoodReq struct {
 	Images      []string `json:"images"`
 }
 
+type UpdateAuditStatusReq struct {
+	UserID     int `json:"userID"`
+	CompanyID  int `json:"company_id"`
+	UpdateType int `json:"update_type"`
+	Status     int `json:"status"`
+}
+
 type MainBodyStruct struct {
 	MainImage   CompanyMajorInfoImage `json:"main_image"`
 	CompanyName string                `json:"company_name"`
