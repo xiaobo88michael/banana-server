@@ -103,7 +103,7 @@ func (s *CertApi) ReleaseGoods(c *gin.Context) {
 // @Summary   更新审核状态
 // @accept    application/json
 // @Produce   application/json
-// @Param     data  body      cerReq.UpdateAuditStatusReq     true  "审核状态更新"
+// @Param     data  body      cerReq.UpdateAuditStatusReq     true  "userID 用户id(update_type为1时必填), company_id 商户id(update_type为2时必填), update_type 更新类型(1.更新用户 2.更新商户), status 审核状态 0未审核 1审核中 2已审核"
 // @Success   200   {object}  cerRes.Response{msg=string}  "审核状态更新成功"
 // @Router    /certificate/UpdateUserAuditStatus [post]
 func (s *CertApi) UpdateUserAuditStatus(c *gin.Context) {

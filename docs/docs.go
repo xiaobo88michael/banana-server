@@ -30,7 +30,7 @@ const docTemplate = `{
                 "summary": "更新审核状态",
                 "parameters": [
                     {
-                        "description": "审核状态更新",
+                        "description": "userID 用户id(update_type为1时必填), company_id 商户id(update_type为2时必填), update_type 更新类型(1.更新用户 2.更新商户), status 审核状态 0未审核 1审核中 2已审核",
                         "name": "data",
                         "in": "body",
                         "required": true,
