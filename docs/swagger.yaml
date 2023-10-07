@@ -71,7 +71,7 @@ definitions:
         type: integer
       update_type:
         type: integer
-      userID:
+      user_id:
         type: integer
     type: object
   request.UserAduitMaterialsReleaseReq:
@@ -117,7 +117,7 @@ paths:
       consumes:
       - application/json
       parameters:
-      - description: userID 用户id(update_type为1时必填), company_id 商户id(update_type为2时必填),
+      - description: user_id 用户id(update_type为1时必填), company_id 商户id(update_type为2时必填),
           update_type 更新类型(1.更新用户 2.更新商户), status 审核状态 0未审核 1审核中 2已审核
         in: body
         name: data

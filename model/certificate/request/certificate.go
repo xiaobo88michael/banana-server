@@ -30,7 +30,7 @@ type ReleaseGoodReq struct {
 }
 
 type UpdateAuditStatusReq struct {
-	UserID     int `json:"userID"`
+	UserID     int `json:"user_id"`
 	CompanyID  int `json:"company_id"`
 	UpdateType int `json:"update_type"`
 	Status     int `json:"status"`
