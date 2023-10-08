@@ -36,6 +36,16 @@ type UpdateAuditStatusReq struct {
 	Status     int `json:"status"`
 }
 
+type GetAuditStatusReq struct {
+	UserID     int `json:"user_id" example:"87"`
+	CompanyID  int `json:"company_id"`
+	UpdateType int `json:"update_type" example:"1"`
+}
+
+type GetAuditStatusRes struct {
+	Status int `json:"status" example:"0"`
+}
+
 type MainBodyStruct struct {
 	MainImage   CompanyMajorInfoImage `json:"main_image"`
 	CompanyName string                `json:"company_name"`

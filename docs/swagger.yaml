@@ -30,6 +30,23 @@ definitions:
       id_card_type:
         type: string
     type: object
+  request.GetAuditStatusReq:
+    properties:
+      company_id:
+        type: integer
+      update_type:
+        example: 1
+        type: integer
+      user_id:
+        example: 87
+        type: integer
+    type: object
+  request.GetAuditStatusRes:
+    properties:
+      status:
+        example: 0
+        type: integer
+    type: object
   request.MainBodyStruct:
     properties:
       company_name:
@@ -165,6 +182,35 @@ paths:
       summary: 企业资料上传
       tags:
       - CompanyAduitMaterialsRelease
+  /certificate/get_audit_status:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 'user_id 用户id(update_type为1时必填), company_id 商户id(update_type为2时必填),
+          update_type 更新类型(1.更新用户 2.更新商户) '
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.GetAuditStatusReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 审核状态 0未审核 1审核中 2已审核
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/request.GetAuditStatusRes'
+                msg:
+                  type: string
+              type: object
+      summary: 获取审核状态
+      tags:
+      - GetAuditStatus
   /certificate/good_release:
     post:
       consumes:

@@ -81,6 +81,24 @@ func (s *CerService) UpdateAuditStatus(req *request.UpdateAuditStatusReq) error 
 	return nil
 }
 
+func (s *CerService) GetAuditStatus(req *request.GetAuditStatusReq) (int, error) {
+	var status int
+	if req.UpdateType == 1 {
+		temp, err := GetUserAuditStatus(req.UserID)
+		if err != nil {
+			return status, err
+		}
+		status = temp.AuditStatus
+	} else if req.UpdateType == 2 {
+		temp, err := GetCompanyAuditStatus(req.CompanyID)
+		if err != nil {
+			return status, err
+		}
+		status = temp.AuditStatus
+	}
+	return status, nil
+}
+
 func UpdateUserAuditStatus(userId int, status int) error {
 	var thinkMember certificate.ThinkMember
 	fmt.Println("userId:", userId)
@@ -94,6 +112,18 @@ func UpdateUserAuditStatus(userId int, status int) error {
 	return global.GVA_DB.Table("think_member").Save(&thinkMember).Error
 }
 
+func GetUserAuditStatus(userId int) (*certificate.ThinkMember, error) {
+	var thinkMember certificate.ThinkMember
+	fmt.Println("userId:", userId)
+	rows := global.GVA_DB.Table("think_member").Where("id=?", userId).Find(&thinkMember).Error
+	fmt.Println("thinkMember:", thinkMember)
+	if rows != nil {
+		fmt.Println("err:", rows)
+		return nil, errors.New("UserNoExist")
+	}
+	return &thinkMember, nil
+}
+
 func UpdateCompanyAuditStatus(companyId int, status int) error {
 	var thinkMec certificate.ThinkMerchantsInfo
 
@@ -103,4 +133,15 @@ func UpdateCompanyAuditStatus(companyId int, status int) error {
 	}
 	thinkMec.AuditStatus = status
 	return global.GVA_DB.Table("think_merchants_info").Save(&thinkMec).Error
+}
+
+func GetCompanyAuditStatus(companyId int) (*certificate.ThinkMerchantsInfo, error) {
+	var thinkMec certificate.ThinkMerchantsInfo
+
+	rows := global.GVA_DB.Table("think_merchants_info").Where("id=?", companyId).Find(&thinkMec).RowsAffected
+	if rows == 0 {
+		return nil, errors.New("MerchantsNoExist")
+	}
+
+	return &thinkMec, nil
 }

@@ -15,5 +15,6 @@ func (r *CertificateRouter) InitRouter(pr *gin.RouterGroup) {
 		g.POST("company_audit_material_release", api.CompanyAduitMaterialsRelease)
 		g.POST("good_release", api.ReleaseGoods)
 		g.POST("update_audit_status", api.UpdateUserAuditStatus)
+		g.POST("get_audit_status", api.GetAuditStatus)
 	}
 }

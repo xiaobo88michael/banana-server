@@ -120,3 +120,29 @@ func (s *CertApi) UpdateUserAuditStatus(c *gin.Context) {
 	}
 	cerRes.Result(cerRes.SUCCESS, nil, "审核状态更新成功", c)
 }
+
+// GetAuditStatus
+// @Tags      GetAuditStatus
+// @Summary   获取审核状态
+// @accept    application/json
+// @Produce   application/json
+// @Param     data  body      cerReq.GetAuditStatusReq    true  "user_id 用户id(update_type为1时必填), company_id 商户id(update_type为2时必填), update_type 更新类型(1.更新用户 2.更新商户) "
+// @Success   200   {object}  cerRes.Response{data=cerReq.GetAuditStatusRes,msg=string}   "审核状态 0未审核 1审核中 2已审核"
+// @Router    /certificate/get_audit_status [post]
+func (s *CertApi) GetAuditStatus(c *gin.Context) {
+	var req cerReq.GetAuditStatusReq
+	if err := c.ShouldBindJSON(&req); err != nil {
+		cerRes.FailWithMessage(err.Error(), c)
+		return
+	}
+	status, err := cerService.GetAuditStatus(&req)
+	if err != nil {
+		global.GVA_LOG.Error(err.Error())
+		cerRes.FailWithMessage(err.Error(), c)
+		return
+	}
+	var res = cerReq.GetAuditStatusRes{
+		Status: status,
+	}
+	cerRes.Result(cerRes.SUCCESS, res, "获取审核状态成功", c)
+}

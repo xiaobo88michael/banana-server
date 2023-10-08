@@ -106,6 +106,54 @@ const docTemplate = `{
                 }
             }
         },
+        "/certificate/get_audit_status": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "GetAuditStatus"
+                ],
+                "summary": "获取审核状态",
+                "parameters": [
+                    {
+                        "description": "user_id 用户id(update_type为1时必填), company_id 商户id(update_type为2时必填), update_type 更新类型(1.更新用户 2.更新商户) ",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.GetAuditStatusReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "审核状态 0未审核 1审核中 2已审核",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/response.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/request.GetAuditStatusRes"
+                                        },
+                                        "msg": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/certificate/good_release": {
             "post": {
                 "consumes": [
@@ -294,6 +342,31 @@ const docTemplate = `{
                 },
                 "id_card_type": {
                     "type": "string"
+                }
+            }
+        },
+        "request.GetAuditStatusReq": {
+            "type": "object",
+            "properties": {
+                "company_id": {
+                    "type": "integer"
+                },
+                "update_type": {
+                    "type": "integer",
+                    "example": 1
+                },
+                "user_id": {
+                    "type": "integer",
+                    "example": 87
+                }
+            }
+        },
+        "request.GetAuditStatusRes": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "integer",
+                    "example": 0
                 }
             }
         },
